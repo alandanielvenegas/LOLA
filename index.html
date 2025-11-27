@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>LOLA JACOBO</title>
   <style>
     :root{
@@ -14,6 +14,18 @@
       --primary-2: #b06fff;
       --accent: #22d1ee;
       --whatsapp: #25D366;
+
+      /* Escalas base para móvil */
+      --font-base: 18px;       /* texto base más grande */
+      --font-btn: 20px;        /* tamaño de texto en botones */
+      --font-title-min: 26px;  /* título mínimo */
+      --icon-size: 26px;       /* iconos más grandes */
+      --btn-pad-y: 18px;       /* padding vertical botones */
+      --btn-pad-x: 22px;       /* padding horizontal botones */
+      --btn-radius: 18px;      /* radios más redondeados */
+      --links-gap: 18px;       /* separación entre botones */
+      --container-pad: 24px;   /* padding del contenedor */
+      --tap-min: 48px;         /* área mínima táctil recomendada */
     }
     [data-theme="light"]{
       --bg: #f7f7fb;
@@ -35,12 +47,15 @@
                   var(--bg);
       color: var(--text);
       font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-size: var(--font-base);
+      -webkit-tap-highlight-color: transparent; /* mejor UX táctil */
     }
 
     .container{
-      max-width: 540px;
+      max-width: 560px;
       margin: 0 auto;
-      padding: 24px 20px 40px;
+      padding: var(--container-pad);
+      padding-bottom: calc(var(--container-pad) + env(safe-area-inset-bottom, 0px));
       position: relative;
     }
 
@@ -62,11 +77,11 @@
       display:flex;
       align-items:center;
       flex-direction:column;
-      gap: 14px;
-      margin: 32px 0 22px;
+      gap: 16px;
+      margin: 36px 0 24px;
     }
     .avatar-wrapper{
-      width: 120px; height:120px;
+      width: 140px; height:140px; /* más grande en móvil */
       border-radius: 50%;
       padding: 3px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -80,8 +95,8 @@
       background: #ddd;
     }
     .name{
-      font-size: clamp(22px, 5vw, 28px);
-      font-weight: 600;
+      font-size: clamp(var(--font-title-min), 6vw, 32px);
+      font-weight: 700;
       letter-spacing: .2px;
       margin: 0;
       text-align:center;
@@ -89,34 +104,36 @@
     .subtitle{
       margin: 0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 16px;
       text-align:center;
     }
 
     .links{
       display: grid;
-      gap: 16px; /* más espacio entre botones */
-      margin-top: 20px;
+      gap: var(--links-gap);
+      margin-top: 22px;
     }
     .btn{
       display:flex;
       align-items:center;
-      gap: 14px; /* icono-texto más separado */
-      padding: 18px 20px; /* botones más altos y anchos */
-      border-radius: 16px; /* esquinas más redondeadas */
+      gap: 16px;
+      padding: var(--btn-pad-y) var(--btn-pad-x);
+      min-height: var(--tap-min);          /* asegura área táctil 48px */
+      border-radius: var(--btn-radius);
       background: var(--card);
       color: var(--text);
       text-decoration:none;
-      border: 1px solid rgba(255,255,255,.06);
-      box-shadow: 0 8px 18px rgba(0,0,0,.20);
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 8px 18px rgba(0,0,0,.18);
       transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
-      font-size: 18px; /* texto más grande para móvil */
-      line-height: 1.2;
+      font-size: var(--font-btn);
+      line-height: 1.25;
+      touch-action: manipulation;           /* mejora respuesta táctil */
     }
-    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.25); }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.22); }
     .btn:active{ transform: translateY(0); }
 
-    .btn .icon{ font-size: 22px; }
+    .btn .icon{ font-size: var(--icon-size); }
 
     .btn-primary{
       background: linear-gradient(135deg, var(--primary), var(--primary-2));
@@ -140,22 +157,45 @@
     .footer{
       display:flex;
       justify-content:center;
-      margin-top: 26px;
+      margin-top: 28px;
     }
     .tiny-btn{
       background: transparent;
-      border: 1px solid rgba(255,255,255,.2);
+      border: 1px solid rgba(0,0,0,.12);
       color: var(--text);
-      padding: 10px 14px;
-      border-radius: 10px;
+      padding: 12px 16px;
+      border-radius: 12px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
+      min-height: var(--tap-min);
     }
 
+    /* Mejora aún más en pantallas medianas y grandes */
     @media (min-width: 520px){
-      .links{ gap: 18px; }
-      .btn{ padding: 20px 22px; font-size: 19px; }
-      .btn .icon{ font-size: 24px; }
+      :root{
+        --font-base: 18px;
+        --font-btn: 20px;
+        --icon-size: 28px;
+        --btn-pad-y: 20px;
+        --btn-pad-x: 24px;
+        --btn-radius: 20px;
+        --links-gap: 20px;
+      }
+      .avatar-wrapper{ width: 150px; height: 150px; }
+      .name{ font-size: clamp(28px, 4vw, 36px); }
+    }
+
+    /* Dispositivos muy pequeños (360px o menos): aumentamos contraste y espacio */
+    @media (max-width: 360px){
+      :root{
+        --font-base: 18px;
+        --font-btn: 19px;
+        --icon-size: 24px;
+        --btn-pad-y: 18px;
+        --btn-pad-x: 18px;
+        --links-gap: 16px;
+      }
+      .container{ padding-left: 16px; padding-right: 16px; }
     }
   </style>
 </head>
@@ -171,27 +211,27 @@
 
   <section class="links">
     <a class="btn btn-primary" id="btnFacebook" href="#" target="_blank" rel="noopener">
-      <span class="icon"></span>
+      <span class="icon">📘</span>
       <span>Facebook</span>
     </a>
 
     <a class="btn btn-gradient" id="btnInstagram" href="#" target="_blank" rel="noopener">
-      <span class="icon"></span>
+      <span class="icon">📸</span>
       <span>Instagram</span>
     </a>
 
     <a class="btn btn-whatsapp" id="btnWhatsapp" href="#" target="_blank" rel="noopener">
-      <span class="icon"></span>
+      <span class="icon">💬</span>
       <span>WhatsApp</span>
     </a>
 
     <a class="btn btn-secondary" id="btnTiktok" href="#" target="_blank" rel="noopener">
-      <span class="icon"></span>
+      <span class="icon">🎵</span>
       <span>TikTok</span>
     </a>
 
     <a class="btn btn-secondary" id="btnWeb" href="#" target="_blank" rel="noopener">
-      <span class="icon"></span>
+      <span class="icon">🌐</span>
       <span>Sitio Web</span>
     </a>
   </section>
