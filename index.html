@@ -1,0 +1,273 @@
+<style>
+  :root{
+    --bg: #0f0e17;
+    --card: #ffffff;
+    --text: #4b4b4b;
+    --muted: #bfc0c0;
+    --primary: #8a5cff;
+    --primary-2: #b06fff;
+    --accent: #22d1ee;
+    --whatsapp: #25D366;
+  }
+  [data-theme="light"]{
+    --bg: #f7f7fb;
+    --card: #000000;
+    --text: #ffffff;
+    --muted: #5a5a6a;
+    --primary: #7a5cff;
+    --primary-2: #a47dff;
+    --accent: #0bbbd6;
+    --whatsapp: #22c55e;
+  }
+
+  *{ box-sizing: border-box; }
+  html, body{ height: 100%; }
+  body{
+    margin:0;
+    background: radial-gradient(1200px 600px at 10% 0%, rgba(138,92,255,.15), transparent),
+                radial-gradient(1200px 600px at 90% 100%, rgba(34,209,238,.12), transparent),
+                var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+
+  .container{
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+    position: relative;
+  }
+
+  .bg-decor{
+    position: fixed;
+    inset: -20%;
+    pointer-events: none;
+    filter: blur(60px);
+    opacity: .45;
+  }
+  .bg-decor-1{
+    background: radial-gradient(600px 400px at 15% 20%, rgba(138,92,255,.25), transparent);
+  }
+  .bg-decor-2{
+    background: radial-gradient(600px 400px at 85% 80%, rgba(34,209,238,.22), transparent);
+  }
+
+  .profile{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    gap: 14px;
+    margin: 32px 0 22px;
+  }
+  .avatar-wrapper{
+    width: 120px; height:120px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  }
+  .avatar{
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    display:block;
+    object-fit: cover;
+    background: #ddd;
+  }
+  .name{
+    font-size: clamp(22px, 5vw, 28px);
+    font-weight: 600;
+    letter-spacing: .2px;
+    margin: 0;
+    text-align:center;
+  }
+  .subtitle{
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    text-align:center;
+  }
+
+  .links{
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .btn{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: var(--card);
+    color: var(--text);
+    text-decoration:none;
+    border: 1px solid rgba(255,255,255,.06);
+    box-shadow: 0 6px 16px rgba(0,0,0,.18);
+    transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,.25); }
+  .btn:active{ transform: translateY(0); }
+
+  .btn .icon{ font-size: 18px; }
+
+  .btn-primary{
+    background: linear-gradient(135deg, var(--primary), var(--primary-2));
+    border: none;
+  }
+  .btn-gradient{
+    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    border: none;
+  }
+  .btn-whatsapp{
+    background: var(--whatsapp);
+    color: #fff;
+    border: none;
+  }
+  .btn-secondary{
+    background: var(--card);
+  }
+
+  .footer{
+    display:flex;
+    justify-content:center;
+    margin-top: 22px;
+  }
+  .tiny-btn{
+    background: transparent;
+    border: 1px solid rgba(255,255,255,.2);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+
+  @media (min-width: 520px){
+    .links{ gap: 14px; }
+    .btn{ padding: 16px 18px; }
+  }
+</style><main class="container">
+  <header class="profile">
+    <div class="avatar-wrapper">
+      <!-- Cambia este src por una URL o archivo local -->
+      <img id="avatar" class="avatar" src="lola.jpg" alt="Foto de Mamá" />
+    </div>
+
+    <!-- Cambia el nombre aquí o en PROFILE.name dentro del script -->
+    <h1 id="displayName" class="name">LOLA JACOBO</h1>
+    <p class="subtitle">LA VOZ MAS SEXY DE LA RADIO</p>
+  </header>
+
+  <section class="links">
+    <a class="btn btn-primary" id="btnFacebook" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>Facebook</span>
+    </a>
+
+    <a class="btn btn-gradient" id="btnInstagram" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>Instagram</span>
+    </a>
+
+    <a class="btn btn-whatsapp" id="btnWhatsapp" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>WhatsApp</span>
+    </a>
+
+    <a class="btn btn-secondary" id="btnTiktok" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>TikTok</span>
+    </a>
+
+    <a class="btn btn-secondary" id="btnYoutube" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>YouTube</span>
+    </a>
+
+    <a class="btn btn-secondary" id="btnWeb" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>Sitio Web</span>
+    </a>
+  </section>
+
+  <footer class="footer">
+    <button id="toggleTheme" class="tiny-btn" aria-label="Cambiar tema">Cambiar tema</button>
+  </footer>
+</main>
+
+<script>
+  // ====== MODIFICA AQUÍ TUS DATOS RÁPIDO ======
+  const SOCIAL_LINKS = {
+    facebook: "https://www.facebook.com/lo.jach.1/",
+    instagram: "https://www.instagram.com/lola_jach/?hl=es",
+    whatsapp: "https://wa.me/523411702230",
+    tiktok: "https://www.tiktok.com/@lolajach",
+    youtube: "https://www.youtube.com/@tu-link-aqui",
+    web: "https://tusitio.com"
+  };
+
+  const PROFILE = {
+    name: "LOLA JACOBO",
+    // Si quieres usar una foto por URL, ponla aquí:
+    photoUrl: "" // ejemplo: "https://mi-cdn.com/foto.jpg"
+  };
+  // ============================================
+
+  // Aplica links y datos
+  function applyProfile(){
+    const map = [
+      { id: "btnFacebook", key: "facebook" },
+      { id: "btnInstagram", key: "instagram" },
+      { id: "btnWhatsapp", key: "whatsapp" },
+      { id: "btnTiktok", key: "tiktok" },
+      { id: "btnYoutube", key: "youtube" },
+      { id: "btnWeb", key: "web" },
+    ];
+
+    map.forEach(({ id, key }) => {
+      const a = document.getElementById(id);
+      if (a && SOCIAL_LINKS[key]) a.href = SOCIAL_LINKS[key];
+    });
+
+    if (PROFILE.name) {
+      const d = document.getElementById("displayName");
+      if (d) d.textContent = PROFILE.name;
+    }
+    if (PROFILE.photoUrl) {
+      const avatar = document.getElementById("avatar");
+      if (avatar) avatar.src = PROFILE.photoUrl;
+    }
+  }
+
+  // Tema claro/oscuro
+  const root = document.documentElement;
+  const KEY = "preferred-theme";
+
+  function applyTheme(theme){
+    if(theme === "light"){
+      root.setAttribute("data-theme", "light");
+    } else {
+      root.removeAttribute("data-theme");
+    }
+    try { localStorage.setItem(KEY, theme); } catch(e){}
+  }
+
+  function initTheme(){
+    try{
+      const saved = localStorage.getItem(KEY);
+      if(saved){ applyTheme(saved); return; }
+    }catch(e){}
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    applyTheme(prefersLight ? "light" : "dark");
+  }
+
+  // Inicializa todo
+  document.addEventListener("DOMContentLoaded", () => {
+    initTheme();
+    applyProfile();
+    document.getElementById("toggleTheme")?.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+      applyTheme(current === "light" ? "dark" : "light");
+    });
+  });
+</script>
