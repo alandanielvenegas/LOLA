@@ -1,159 +1,170 @@
-<style>
-  :root{
-    --bg: #0f0e17;
-    --card: #ffffff;
-    --text: #4b4b4b;
-    --muted: #bfc0c0;
-    --primary: #8a5cff;
-    --primary-2: #b06fff;
-    --accent: #22d1ee;
-    --whatsapp: #25D366;
-  }
-  [data-theme="light"]{
-    --bg: #f7f7fb;
-    --card: #000000;
-    --text: #ffffff;
-    --muted: #5a5a6a;
-    --primary: #7a5cff;
-    --primary-2: #a47dff;
-    --accent: #0bbbd6;
-    --whatsapp: #22c55e;
-  }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LOLA JACOBO</title>
+  <style>
+    :root{
+      --bg: #0f0e17;
+      --card: #ffffff;
+      --text: #4b4b4b;
+      --muted: #bfc0c0;
+      --primary: #8a5cff;
+      --primary-2: #b06fff;
+      --accent: #22d1ee;
+      --whatsapp: #25D366;
+    }
+    [data-theme="light"]{
+      --bg: #f7f7fb;
+      --card: #000000;
+      --text: #ffffff;
+      --muted: #5a5a6a;
+      --primary: #7a5cff;
+      --primary-2: #a47dff;
+      --accent: #0bbbd6;
+      --whatsapp: #22c55e;
+    }
 
-  *{ box-sizing: border-box; }
-  html, body{ height: 100%; }
-  body{
-    margin:0;
-    background: radial-gradient(1200px 600px at 10% 0%, rgba(138,92,255,.15), transparent),
-                radial-gradient(1200px 600px at 90% 100%, rgba(34,209,238,.12), transparent),
-                var(--bg);
-    color: var(--text);
-    font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  }
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% 0%, rgba(138,92,255,.15), transparent),
+                  radial-gradient(1200px 600px at 90% 100%, rgba(34,209,238,.12), transparent),
+                  var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
 
-  .container{
-    max-width: 540px;
-    margin: 0 auto;
-    padding: 24px 20px 40px;
-    position: relative;
-  }
+    .container{
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+      position: relative;
+    }
 
-  .bg-decor{
-    position: fixed;
-    inset: -20%;
-    pointer-events: none;
-    filter: blur(60px);
-    opacity: .45;
-  }
-  .bg-decor-1{
-    background: radial-gradient(600px 400px at 15% 20%, rgba(138,92,255,.25), transparent);
-  }
-  .bg-decor-2{
-    background: radial-gradient(600px 400px at 85% 80%, rgba(34,209,238,.22), transparent);
-  }
+    .bg-decor{
+      position: fixed;
+      inset: -20%;
+      pointer-events: none;
+      filter: blur(60px);
+      opacity: .45;
+    }
+    .bg-decor-1{
+      background: radial-gradient(600px 400px at 15% 20%, rgba(138,92,255,.25), transparent);
+    }
+    .bg-decor-2{
+      background: radial-gradient(600px 400px at 85% 80%, rgba(34,209,238,.22), transparent);
+    }
 
-  .profile{
-    display:flex;
-    align-items:center;
-    flex-direction:column;
-    gap: 14px;
-    margin: 32px 0 22px;
-  }
-  .avatar-wrapper{
-    width: 120px; height:120px;
-    border-radius: 50%;
-    padding: 3px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    box-shadow: 0 10px 30px rgba(0,0,0,.25);
-  }
-  .avatar{
-    width: 100%; height: 100%;
-    border-radius: 50%;
-    display:block;
-    object-fit: cover;
-    background: #ddd;
-  }
-  .name{
-    font-size: clamp(22px, 5vw, 28px);
-    font-weight: 600;
-    letter-spacing: .2px;
-    margin: 0;
-    text-align:center;
-  }
-  .subtitle{
-    margin: 0;
-    color: var(--muted);
-    font-size: 14px;
-    text-align:center;
-  }
+    .profile{
+      display:flex;
+      align-items:center;
+      flex-direction:column;
+      gap: 14px;
+      margin: 32px 0 22px;
+    }
+    .avatar-wrapper{
+      width: 120px; height:120px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .avatar{
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      display:block;
+      object-fit: cover;
+      background: #ddd;
+    }
+    .name{
+      font-size: clamp(22px, 5vw, 28px);
+      font-weight: 600;
+      letter-spacing: .2px;
+      margin: 0;
+      text-align:center;
+    }
+    .subtitle{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-align:center;
+    }
 
-  .links{
-    display: grid;
-    gap: 12px;
-    margin-top: 18px;
-  }
-  .btn{
-    display:flex;
-    align-items:center;
-    gap: 10px;
-    padding: 14px 16px;
-    border-radius: 14px;
-    background: var(--card);
-    color: var(--text);
-    text-decoration:none;
-    border: 1px solid rgba(255,255,255,.06);
-    box-shadow: 0 6px 16px rgba(0,0,0,.18);
-    transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
-  }
-  .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,.25); }
-  .btn:active{ transform: translateY(0); }
+    .links{
+      display: grid;
+      gap: 16px; /* más espacio entre botones */
+      margin-top: 20px;
+    }
+    .btn{
+      display:flex;
+      align-items:center;
+      gap: 14px; /* icono-texto más separado */
+      padding: 18px 20px; /* botones más altos y anchos */
+      border-radius: 16px; /* esquinas más redondeadas */
+      background: var(--card);
+      color: var(--text);
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 8px 18px rgba(0,0,0,.20);
+      transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+      font-size: 18px; /* texto más grande para móvil */
+      line-height: 1.2;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.25); }
+    .btn:active{ transform: translateY(0); }
 
-  .btn .icon{ font-size: 18px; }
+    .btn .icon{ font-size: 22px; }
 
-  .btn-primary{
-    background: linear-gradient(135deg, var(--primary), var(--primary-2));
-    border: none;
-  }
-  .btn-gradient{
-    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
-    border: none;
-  }
-  .btn-whatsapp{
-    background: var(--whatsapp);
-    color: #fff;
-    border: none;
-  }
-  .btn-secondary{
-    background: var(--card);
-  }
+    .btn-primary{
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      border: none;
+      color: #fff;
+    }
+    .btn-gradient{
+      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      border: none;
+      color: #fff;
+    }
+    .btn-whatsapp{
+      background: var(--whatsapp);
+      color: #fff;
+      border: none;
+    }
+    .btn-secondary{
+      background: var(--card);
+    }
 
-  .footer{
-    display:flex;
-    justify-content:center;
-    margin-top: 22px;
-  }
-  .tiny-btn{
-    background: transparent;
-    border: 1px solid rgba(255,255,255,.2);
-    color: var(--text);
-    padding: 8px 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 13px;
-  }
+    .footer{
+      display:flex;
+      justify-content:center;
+      margin-top: 26px;
+    }
+    .tiny-btn{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.2);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
 
-  @media (min-width: 520px){
-    .links{ gap: 14px; }
-    .btn{ padding: 16px 18px; }
-  }
-</style><main class="container">
+    @media (min-width: 520px){
+      .links{ gap: 18px; }
+      .btn{ padding: 20px 22px; font-size: 19px; }
+      .btn .icon{ font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+<main class="container">
   <header class="profile">
     <div class="avatar-wrapper">
-      <!-- Cambia este src por una URL o archivo local -->
       <img id="avatar" class="avatar" src="lola.jpg" alt="Foto de Mamá" />
     </div>
-
-    <!-- Cambia el nombre aquí o en PROFILE.name dentro del script -->
     <h1 id="displayName" class="name">LOLA JACOBO</h1>
     <p class="subtitle">LA VOZ MAS SEXY DE LA RADIO</p>
   </header>
@@ -179,11 +190,6 @@
       <span>TikTok</span>
     </a>
 
-    <a class="btn btn-secondary" id="btnYoutube" href="#" target="_blank" rel="noopener">
-      <span class="icon"></span>
-      <span>YouTube</span>
-    </a>
-
     <a class="btn btn-secondary" id="btnWeb" href="#" target="_blank" rel="noopener">
       <span class="icon"></span>
       <span>Sitio Web</span>
@@ -202,13 +208,11 @@
     instagram: "https://www.instagram.com/lola_jach/?hl=es",
     whatsapp: "https://wa.me/523411702230",
     tiktok: "https://www.tiktok.com/@lolajach",
-    youtube: "https://www.youtube.com/@tu-link-aqui",
     web: "https://tusitio.com"
   };
 
   const PROFILE = {
     name: "LOLA JACOBO",
-    // Si quieres usar una foto por URL, ponla aquí:
     photoUrl: "" // ejemplo: "https://mi-cdn.com/foto.jpg"
   };
   // ============================================
@@ -220,7 +224,6 @@
       { id: "btnInstagram", key: "instagram" },
       { id: "btnWhatsapp", key: "whatsapp" },
       { id: "btnTiktok", key: "tiktok" },
-      { id: "btnYoutube", key: "youtube" },
       { id: "btnWeb", key: "web" },
     ];
 
@@ -271,3 +274,5 @@
     });
   });
 </script>
+</body>
+</html>
