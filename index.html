@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LOLA JACOBO</title>
+  <style>
+    :root{
+      --bg: #0f0e17;
+      --card: #ffffff;
+      --text: #4b4b4b;
+      --muted: #bfc0c0;
+      --primary: #8a5cff;
+      --primary-2: #b06fff;
+      --accent: #22d1ee;
+      --whatsapp: #25D366;
+    }
+    [data-theme="light"]{
+      --bg: #f7f7fb;
+      --card: #000000;
+      --text: #ffffff;
+      --muted: #5a5a6a;
+      --primary: #7a5cff;
+      --primary-2: #a47dff;
+      --accent: #0bbbd6;
+      --whatsapp: #22c55e;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% 0%, rgba(138,92,255,.15), transparent),
+                  radial-gradient(1200px 600px at 90% 100%, rgba(34,209,238,.12), transparent),
+                  var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    .container{
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+      position: relative;
+    }
+
+    .bg-decor{
+      position: fixed;
+      inset: -20%;
+      pointer-events: none;
+      filter: blur(60px);
+      opacity: .45;
+    }
+    .bg-decor-1{
+      background: radial-gradient(600px 400px at 15% 20%, rgba(138,92,255,.25), transparent);
+    }
+    .bg-decor-2{
+      background: radial-gradient(600px 400px at 85% 80%, rgba(34,209,238,.22), transparent);
+    }
+
+    .profile{
+      display:flex;
+      align-items:center;
+      flex-direction:column;
+      gap: 14px;
+      margin: 32px 0 22px;
+    }
+    .avatar-wrapper{
+      width: 120px; height:120px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .avatar{
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      display:block;
+      object-fit: cover;
+      background: #ddd;
+    }
+    .name{
+      font-size: clamp(22px, 5vw, 28px);
+      font-weight: 600;
+      letter-spacing: .2px;
+      margin: 0;
+      text-align:center;
+    }
+    .subtitle{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-align:center;
+    }
+
+    .links{
+      display: grid;
+      gap: 16px; /* más espacio entre botones */
+      margin-top: 20px;
+    }
+    .btn{
+      display:flex;
+      align-items:center;
+      gap: 14px; /* icono-texto más separado */
+      padding: 18px 20px; /* botones más altos y anchos */
+      border-radius: 16px; /* esquinas más redondeadas */
+      background: var(--card);
+      color: var(--text);
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 8px 18px rgba(0,0,0,.20);
+      transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+      font-size: 18px; /* texto más grande para móvil */
+      line-height: 1.2;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.25); }
+    .btn:active{ transform: translateY(0); }
+
+    .btn .icon{ font-size: 22px; }
+
+    .btn-primary{
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      border: none;
+      color: #fff;
+    }
+    .btn-gradient{
+      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      border: none;
+      color: #fff;
+    }
+    .btn-whatsapp{
+      background: var(--whatsapp);
+      color: #fff;
+      border: none;
+    }
+    .btn-secondary{
+      background: var(--card);
+    }
+
+    .footer{
+      display:flex;
+      justify-content:center;
+      margin-top: 26px;
+    }
+    .tiny-btn{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.2);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    @media (min-width: 520px){
+      .links{ gap: 18px; }
+      .btn{ padding: 20px 22px; font-size: 19px; }
+      .btn .icon{ font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+<main class="container">
+  <header class="profile">
+    <div class="avatar-wrapper">
+      <img id="avatar" class="avatar" src="lola.jpg" alt="Foto de Mamá" />
+    </div>
+    <h1 id="displayName" class="name">LOLA JACOBO</h1>
+    <p class="subtitle">LA VOZ MAS SEXY DE LA RADIO</p>
+  </header>
+
+  <section class="links">
+    <a class="btn btn-primary" id="btnFacebook" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>Facebook</span>
+    </a>
+
+    <a class="btn btn-gradient" id="btnInstagram" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>Instagram</span>
+    </a>
+
+    <a class="btn btn-whatsapp" id="btnWhatsapp" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>WhatsApp</span>
+    </a>
+
+    <a class="btn btn-secondary" id="btnTiktok" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>TikTok</span>
+    </a>
+
+    <a class="btn btn-secondary" id="btnWeb" href="#" target="_blank" rel="noopener">
+      <span class="icon"></span>
+      <span>Sitio Web</span>
+    </a>
+  </section>
+
+  <footer class="footer">
+    <button id="toggleTheme" class="tiny-btn" aria-label="Cambiar tema">Cambiar tema</button>
+  </footer>
+</main>
+
+<script>
+  // ====== MODIFICA AQUÍ TUS DATOS RÁPIDO ======
+  const SOCIAL_LINKS = {
+    facebook: "https://www.facebook.com/lo.jach.1/",
+    instagram: "https://www.instagram.com/lola_jach/?hl=es",
+    whatsapp: "https://wa.me/523411702230",
+    tiktok: "https://www.tiktok.com/@lolajach",
+    web: "https://tusitio.com"
+  };
+
+  const PROFILE = {
+    name: "LOLA JACOBO",
+    photoUrl: "" // ejemplo: "https://mi-cdn.com/foto.jpg"
+  };
+  // ============================================
+
+  // Aplica links y datos
+  function applyProfile(){
+    const map = [
+      { id: "btnFacebook", key: "facebook" },
+      { id: "btnInstagram", key: "instagram" },
+      { id: "btnWhatsapp", key: "whatsapp" },
+      { id: "btnTiktok", key: "tiktok" },
+      { id: "btnWeb", key: "web" },
+    ];
+
+    map.forEach(({ id, key }) => {
+      const a = document.getElementById(id);
+      if (a && SOCIAL_LINKS[key]) a.href = SOCIAL_LINKS[key];
+    });
+
+    if (PROFILE.name) {
+      const d = document.getElementById("displayName");
+      if (d) d.textContent = PROFILE.name;
+    }
+    if (PROFILE.photoUrl) {
+      const avatar = document.getElementById("avatar");
+      if (avatar) avatar.src = PROFILE.photoUrl;
+    }
+  }
+
+  // Tema claro/oscuro
+  const root = document.documentElement;
+  const KEY = "preferred-theme";
+
+  function applyTheme(theme){
+    if(theme === "light"){
+      root.setAttribute("data-theme", "light");
+    } else {
+      root.removeAttribute("data-theme");
+    }
+    try { localStorage.setItem(KEY, theme); } catch(e){}
+  }
+
+  function initTheme(){
+    try{
+      const saved = localStorage.getItem(KEY);
+      if(saved){ applyTheme(saved); return; }
+    }catch(e){}
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    applyTheme(prefersLight ? "light" : "dark");
+  }
+
+  // Inicializa todo
+  document.addEventListener("DOMContentLoaded", () => {
+    initTheme();
+    applyProfile();
+    document.getElementById("toggleTheme")?.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+      applyTheme(current === "light" ? "dark" : "light");
+    });
+  });
+</script>
+</body>
+</html>
